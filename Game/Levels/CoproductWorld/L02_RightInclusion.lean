@@ -34,6 +34,6 @@ Conclusion "The tactics `left` and `right` are useful for defining elements of c
 /--
 For propositions `P` and `Q`, the `right` tactic converts a goal of `P ∨ Q` to a goal of `Q`. For types `A` and `B`, the `right` tactic converts a goal of `A ⊕ B` into a goal of `B`.
 -/
-TacticDoc right
+TacticDoc right reads "We choose the right alternative; it remains to give {goalAfter}."
 
 NewTactic right

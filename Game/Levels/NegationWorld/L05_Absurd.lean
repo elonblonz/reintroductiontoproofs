@@ -40,6 +40,6 @@ NewTheorem absurd
 /--
 If the goal is to prove a proposition `P`, then the tactic `exfalso` applies the implication `False.elim : False → P` to reduce to the goal of proving `False`.
 -/
-TacticDoc exfalso
+TacticDoc exfalso reads "It suffices to derive a contradiction."
 
 NewTactic exfalso

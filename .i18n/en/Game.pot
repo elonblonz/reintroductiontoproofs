@@ -632,6 +632,10 @@ msgstr ""
 msgid "Boss level"
 msgstr ""
 
+#: Game/Levels/EqualityWorld/L01_Reflexivity.lean:27
+msgid "Both sides are the same, so this holds by reflexivity."
+msgstr ""
+
 #. §0: `exact b`
 #. §1: `assumption`
 #: Game/Levels/FunctionWorld/L06_MultivariableFunctions.lean:37
@@ -661,6 +665,10 @@ msgstr ""
 #. §5: `False`
 #: Game/Levels/BooleanWorld/L08_NotEqual.lean:37
 msgid "By the definition of the family of propositions §0, the function §1 is a function §2. In particular, if we apply §3 to an element of §4, we get an element of §5, which is what we want."
+msgstr ""
+
+#: Game/Levels/FunctionWorld/L03_UsingFunctionsBackwards.lean:27
+msgid "By {1}, it suffices to give {goalAfter}."
 msgstr ""
 
 #: Game/Levels/ConjunctionWorld/L06_CompoundImplication.lean:28
@@ -1149,6 +1157,10 @@ msgstr ""
 
 #: Game/Levels/ProductWorld/L07_Uncurrying.lean:13
 msgid "Define the uncurrying function, converting a function of two variables into a function out of a product type."
+msgstr ""
+
+#: Game/Levels/ProductWorld/L09_UniversalProperty.lean:53
+msgid "Define {new}."
 msgstr ""
 
 #: Game/Levels/NaturalNumbersWorld/L06_DefiningAddition.lean:6
@@ -4078,6 +4090,10 @@ msgstr ""
 msgid "It is time to appeal to induction, but should induct in the variable §0 or §1? If we had already proven that addition is commutative, the choice would not matter, but given what we have shown so far, you will find that to make progress you need to induct on the same variable we used to define the addition function."
 msgstr ""
 
+#: Game/Levels/NegationWorld/L05_Absurd.lean:40
+msgid "It suffices to derive a contradiction."
+msgstr ""
+
 #. §0: `«{hk}»`
 #. §1: `0 + «{k}»`
 #. §2: `«{k}»`
@@ -4251,6 +4267,10 @@ msgstr ""
 
 #: Game/Levels/ImplicationWorld/L05_ProvingImplication.lean:23
 msgid "Let us now explore other implications that are provable with this strategy."
+msgstr ""
+
+#: Game/Levels/FunctionWorld/L01_IdentityFunction.lean:45
+msgid "Let {new} be given; it remains to give {goalAfter}."
 msgstr ""
 
 #. §0: `P : A → Prop`
@@ -5689,6 +5709,10 @@ msgstr ""
 
 #: Game.lean:20
 msgid "Reintroduction to Proofs"
+msgstr ""
+
+#: Game/Levels/EqualityWorld/L04_Symmetry.lean:31
+msgid "Rewriting with {1}, it remains to give {goalAfter}."
 msgstr ""
 
 #: Game/Levels/CoproductWorld/L02_RightInclusion.lean:6
@@ -7323,9 +7347,17 @@ msgid "This game introduces mathematical proof writing in a formal vocabulary th
 "The language of dependent type theory can be used in parallel to state and prove mathematical theorems as well as to specify and define examples of mathematical objects."
 msgstr ""
 
+#: Game/Levels/TypeWorld/L03_ExactElements.lean:29
+msgid "This is exactly {args}."
+msgstr ""
+
 #. §0: `ext`
 #: Game/Levels/EquivalenceWorld/L06_MoreComponentFunctions.lean:28
 msgid "This is not a definitional equality, so requires the use of function extensionality. Use the tactic §0 to reduce this to proving the componentwise equality of functions."
+msgstr ""
+
+#: Game/Levels/TypeWorld/L01_Elements.lean:29
+msgid "This is one of our assumptions."
 msgstr ""
 
 #. §0: `cases b <;> rfl`
@@ -7766,6 +7798,10 @@ msgstr ""
 msgid "Try §0."
 msgstr ""
 
+#: Game/Levels/AdvancedFunctionWorld/L13_FunctionExtensionality.lean:35
+msgid "Two functions are equal when they agree on every input: let {new} be arbitrary; it remains to give {goalAfter}."
+msgstr ""
+
 #. §0: `g : A → C`
 #. §1: `h : B → C`
 #. §2: `A ⊕ B → C`
@@ -8140,6 +8176,10 @@ msgid "We are now ready for the Boss Level of Implication World.\n"
 "To delete a proof (or proof attempt) and start over click on the button labelled §2 in the upper right hand corner to enter §3. Then delete all the lines of your first proof (or proof attempt). Clicking on §4 takes you back to §5."
 msgstr ""
 
+#: Game/Levels/NaturalNumbersWorld/L03_Induction.lean:71
+msgid "We argue by induction on {1}, starting with {goalAfter}."
+msgstr ""
+
 #. §0: `«{h}» : P → Q ∧ R`
 #. §1: `«{p}»: P`
 #. §2: `«{h}» «{p}» : Q ∧ R`
@@ -8159,6 +8199,26 @@ msgid "We can improve our understanding of the symmetry of disjunction as follow
 "For propositions §0 and §1, §2 is true if and only if §3 is true.\n"
 "\n"
 "To prove this you might find it useful to apply the theorem §4 proven in the previous level. It is now in your library."
+msgstr ""
+
+#: Game/Levels/CoproductWorld/L01_LeftInclusion.lean:32
+msgid "We choose the left alternative; it remains to give {goalAfter}."
+msgstr ""
+
+#: Game/Levels/CoproductWorld/L02_RightInclusion.lean:34
+msgid "We choose the right alternative; it remains to give {goalAfter}."
+msgstr ""
+
+#: Game/Levels/CoproductWorld/L04_UniversalProperty.lean:57
+msgid "We consider each possible form of {1} in turn, starting with {goalAfter}."
+msgstr ""
+
+#: Game/Levels/BooleanWorld/L01_Negation.lean:58
+msgid "We consider each possible form of {1} in turn."
+msgstr ""
+
+#: Game/Levels/ProductWorld/L01_Pairing.lean:33
+msgid "We give each component in turn, starting with {goalAfter}."
 msgstr ""
 
 #. §0: `Bool.noConfusion`
@@ -8506,6 +8566,18 @@ msgid "We now step away from considerations involving types and their elements a
 "\n"
 "This analogy is further emphasized by the fact that we use the same notation for implications §13 as for\n"
 "function types §14. The Lean tactics introduced to define and work with functions will play an analogous role when proving or using implications."
+msgstr ""
+
+#: Game/Levels/ImplicationWorld/L04_ComposingImplication.lean:42
+msgid "We obtain {new}."
+msgstr ""
+
+#: Game/Levels/CoproductWorld/L04_UniversalProperty.lean:62
+msgid "We take {1} apart, obtaining {new}."
+msgstr ""
+
+#: Game/Levels/QuantifierWorld/L04_IntroducingExistence.lean:36
+msgid "We take {args} as the witness; it remains to give {goalAfter}."
 msgstr ""
 
 #. §0: `P`

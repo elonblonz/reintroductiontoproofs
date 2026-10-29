@@ -92,6 +92,6 @@ the second has an assumption `hd : 0 + d = d` and goal
 Note that you must prove the first
 goal before you can access the second one.
 -/
-TacticDoc induction
+TacticDoc induction reads "We argue by induction on {1}, starting with {goalAfter}."
 
 NewTactic induction

@@ -27,6 +27,6 @@ Statement {A : Type} (a : A) : A := by
 Conclusion "In the next level, we will learn about elements of propositions."
 
 /-- The `assumption` tactic tries to solve the main goal using a hypothesis of compatible type, or else fails. -/
-TacticDoc assumption
+TacticDoc assumption reads "This is one of our assumptions."
 
 NewTactic assumption

@@ -25,7 +25,7 @@ Statement {A : Type} {a : A} : a = a := by
   rfl
 
 /-- The tactic `rfl` tries to solve a goal whose type is an equality where the left hand side and right hand side are equal by definition. -/
-TacticDoc rfl
+TacticDoc rfl reads "Both sides are the same, so this holds by reflexivity."
 
 NewTheorem rfl
 NewTactic rfl
