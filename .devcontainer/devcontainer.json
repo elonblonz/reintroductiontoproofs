@@ -1,12 +1,18 @@
 {
-  "forwardPorts": [3000],
-  "build": {"dockerfile": "Dockerfile"},
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/node/game,type=bind,consistency=cached",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "game",
   "workspaceFolder": "/home/node/game",
+  "forwardPorts": [3000],
+  // These settings make sure that the created files (lake-packages etc.) are owned
+  // by the user and not `root`.
+  // see also https://containers.dev/implementors/json_reference/
+  // and https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
   "remoteUser": "node",
   "updateRemoteUserUID": true,
-  "onCreateCommand": "bash .devcontainer/setup.sh",
-  "postAttachCommand": "bash .devcontainer/run-server.sh",
+  // Keep the container alive; the game server is started by `postStartCommand`.
+  "overrideCommand": true,
+  "onCreateCommand": "bash .devcontainer/run.sh build || echo 'ERROR: build failed, try running `bash .devcontainer/run.sh build` manually in your dev container!'",
+  "postStartCommand": "bash .devcontainer/run.sh serve || echo 'ERROR: Did not start game server! See if you have warnings above, then try `bash .devcontainer/run.sh serve` manually!'",
   "customizations": {
     "vscode": {
       "settings": {

@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: check lean4game release pins match
+        run: bash scripts/check_engine_ref.sh
+
       - uses: leanprover/lean-action@v1
         with:
           use-github-cache: false

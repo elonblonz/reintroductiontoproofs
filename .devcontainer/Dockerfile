@@ -1,27 +1,35 @@
 FROM node:22
 
-# Set default shell to bash
-SHELL ["/bin/bash", "-c"]
+ENV ELAN_HOME=/usr/local/elan \
+  PATH=/usr/local/elan/bin:$PATH
 
-# ADD ./* GameSkeleton/
+SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-# install curl, git and nodejs
-RUN apt-get update && \
-    apt-get install -y curl && \
-    apt-get install -y git && \
-    apt-get install -y python3 && \
-    apt-get clean
+COPY ./lean-toolchain /lean-toolchain
 
-# install lean4game
-#COPY lean-toolchain .
-#COPY npm-install.sh .
+# Install the Lean toolchain pinned by `lean-toolchain`.
+RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf \
+    | sh -s -- -y --no-modify-path --default-toolchain "$(cat /lean-toolchain)"; \
+  chmod -R a+w $ELAN_HOME; \
+  lean --version; \
+  lake --version
 
-#RUN chmod +x npm-install.sh
-#RUN ./npm-install.sh
+USER node
+WORKDIR /home/node
 
-# install lean
-#COPY lean-install.sh .
-#RUN chmod +x lean-install.sh
-#RUN ./lean-install.sh
+# Clone the game engine and install its npm dependencies here, so they are cached in the image
+# rather than redone per container. This is a release of our engine fork (upstream lean4game
+# plus our changes, tags on branch `stg4-ui`); it must match `lean4gameRef` in `lakefile.lean`.
+# Set LEAN4GAME_REPO / LEAN4GAME_REF (see docker-compose.yml) to build against another one.
+ARG LEAN4GAME_REPO=https://github.com/elonblonz/lean4game.git
+ARG LEAN4GAME_REF=stg4-v2
+RUN git clone --depth 1 --branch "$LEAN4GAME_REF" "$LEAN4GAME_REPO" lean4game \
+  && cd lean4game && npm ci
 
-#CMD ["bash"]
+# Mount point for the `.lake` named volume (see docker-compose.yml). Creating it here
+# makes the volume owned by `node` instead of `root`.
+RUN mkdir -p /home/node/game/.lake
+# Keep Mathlib's downloaded cache in that volume too, so restarts don't download it again.
+ENV MATHLIB_CACHE_DIR=/home/node/game/.lake/mathlib-cache
+
+WORKDIR /home/node/game

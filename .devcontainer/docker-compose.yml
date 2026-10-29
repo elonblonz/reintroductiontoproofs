@@ -1,0 +1,32 @@
+# Own project name, so the image and `.lake` volume don't clash with other games'
+# `.devcontainer` setups (which would otherwise all be called `devcontainer`).
+name: reintroductiontoproofs
+
+services:
+  game:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      # The engine: a release of our lean4game fork. Must match `lean4gameRef` in `lakefile.lean`.
+      # To try another one: LEAN4GAME_REPO=https://github.com/you/lean4game.git LEAN4GAME_REF=my-branch docker compose ... build
+      args:
+        LEAN4GAME_REPO: ${LEAN4GAME_REPO:-https://github.com/elonblonz/lean4game.git}
+        LEAN4GAME_REF: ${LEAN4GAME_REF:-stg4-v2}
+    # Used by `docker compose up`; the VS Code dev container overrides it and runs
+    # the same steps via `onCreateCommand` / `postStartCommand` instead.
+    command: bash .devcontainer/run.sh
+    # Run an init process as PID 1 so that exited Lean servers are reaped.
+    init: true
+    volumes:
+      - ..:/home/node/game
+      # Keep Mathlib and build outputs (several GB) in a Docker volume: much faster
+      # than a bind mount on Windows/macOS, and survives container rebuilds.
+      - lake:/home/node/game/.lake
+    # Host ports can be changed (GAME_PORT=3010 RELAY_PORT=8081 docker compose up) to run
+    # next to another game's container.
+    ports:
+      - "${GAME_PORT:-3000}:3000"
+      - "${RELAY_PORT:-8080}:8080"
+
+volumes:
+  lake:
