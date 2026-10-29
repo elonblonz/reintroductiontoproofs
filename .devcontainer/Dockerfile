@@ -22,7 +22,7 @@ WORKDIR /home/node
 # plus our changes, tags on branch `stg4-ui`); it must match `lean4gameRef` in `lakefile.lean`.
 # Set LEAN4GAME_REPO / LEAN4GAME_REF (see docker-compose.yml) to build against another one.
 ARG LEAN4GAME_REPO=https://github.com/elonblonz/lean4game.git
-ARG LEAN4GAME_REF=stg4-v4
+ARG LEAN4GAME_REF=stg4-v5
 RUN git clone --depth 1 --branch "$LEAN4GAME_REF" "$LEAN4GAME_REPO" lean4game \
   && cd lean4game && npm ci
 
