@@ -9,7 +9,7 @@ COPY ./lean-toolchain /lean-toolchain
 
 # Install the Lean toolchain pinned by `lean-toolchain`.
 RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf \
-    | sh -s -- -y --no-modify-path --default-toolchain "$(cat /lean-toolchain)"; \
+    | sh -s -- -y --no-modify-path --default-toolchain "$(tr -d '\r' < /lean-toolchain)"; \
   chmod -R a+w $ELAN_HOME; \
   lean --version; \
   lake --version
