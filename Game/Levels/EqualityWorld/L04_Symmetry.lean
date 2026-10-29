@@ -29,7 +29,7 @@ Statement {A : Type} {x y : A} (p : x = y) : y = x  := by
   rfl
 
 /-- Given a hypothesis `p : x = y`, the tactic `rw [p]` will replace each `x` in the goal by `y`. Writing `rw [← p]` will replace the each `y` in the goal by `x`. This is a slightly less powerful version than the `rw` tactic in Mathlib, which will attempt to close the goal with `rfl`. -/
-TacticDoc rw
+TacticDoc rw reads "Rewriting with {1}, it remains to give {goalAfter}."
 
 Conclusion "We will now explore other applications of the tactic `rw`."
 

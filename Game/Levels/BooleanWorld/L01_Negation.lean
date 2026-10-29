@@ -58,6 +58,6 @@ NewDefinition Bool Bool.not Bool.false Bool.true
 /-- The tactic `match` can be used to define a function by cases. For example, in the context of an
 element `b : Bool`, `match b with | false => ? | true => ?` splits the construction into the case where `b` is false followed by the case where `b` is true. Here both `?` should be replaced by the appropriate sequence of tactics for each case, using semicolons if more than one tactic is needed. In the context of `x y : Bool`,
 `match x y with | false, false => ? | false, true => ? | true, false => ? | true, true => ?` splits into the four possible cases. -/
-TacticDoc «match»
+TacticDoc «match» reads "We consider each possible form of {1} in turn."
 
 NewTactic «match»

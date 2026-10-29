@@ -33,6 +33,6 @@ Conclusion "If this is your first time solving this level, go back and solve it 
 /--
 The `constructor` tactic can be used when the goal is a conjunction (among other settings) to split the goal into cases.
 -/
-TacticDoc constructor
+TacticDoc constructor reads "We give each component in turn, starting with {goalAfter}."
 
 NewTactic constructor

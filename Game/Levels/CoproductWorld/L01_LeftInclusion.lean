@@ -32,6 +32,6 @@ Conclusion "The function `Sum.inl : A → A ⊕ B` provides the first introducti
 /--
 For propositions `P` and `Q`, the `left` tactic converts a goal of `P ∨ Q` to a goal of `P`. For types `A` and `B`, the `left` tactic converts a goal of `A ⊕ B` into a goal of `A`.
 -/
-TacticDoc left
+TacticDoc left reads "We choose the left alternative; it remains to give {goalAfter}."
 
 NewTactic left

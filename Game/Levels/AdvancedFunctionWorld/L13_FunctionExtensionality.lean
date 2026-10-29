@@ -33,6 +33,6 @@ Conclusion "In the next level, we will practice using function extensionality to
 end ReintroductionToProofs
 
 /-- The `ext` tactic can be used to apply function extensionality, changing a goal involving proving equality between functions `f g : A → B` into a goal of proving `f x = g x` for an arbitrary `x : A`. The `ext` tactic  applies similar extensionality lemmas that have been proven for other types. -/
-TacticDoc ext
+TacticDoc ext reads "Two functions are equal when they agree on every input: let {new} be arbitrary; it remains to give {goalAfter}."
 
 NewTactic ext

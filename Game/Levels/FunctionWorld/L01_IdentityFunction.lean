@@ -43,6 +43,6 @@ Conclusion "You can solve this level in one line by just giving the entire formu
 NewDefinition id
 
 /-- The `intro` tactic, short for *introduction*, is used to introduce one or more hypotheses when the goal is a function type or an implication. It can be used by itself or followed by names for those hypotheses. For example, when the goal is `P → Q`, type `intro p` to add an assumption `p : P` and update the goal to `Q`. When the goal is `P → Q → R`, type `intro p q` to add assumptions `p : P` and `q : Q` and update the goal to `R`. -/
-TacticDoc intro
+TacticDoc intro reads "Let {new} be given; it remains to give {goalAfter}."
 
 NewTactic intro

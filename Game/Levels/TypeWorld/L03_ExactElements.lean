@@ -27,6 +27,6 @@ Statement {A B : Type} (x : A) (y z : B) : B := by
 Conclusion "After solving this level, use the `Retry` button to solve it again. What happens if you try `exact x`?"
 
 /-- If there is an assumption `e : E` and the goal has type `E`, then `exact e` closes the goal. -/
-TacticDoc exact
+TacticDoc exact reads "This is exactly {args}."
 
 NewTactic exact

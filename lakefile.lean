@@ -12,9 +12,16 @@ def LocalGameServer : Dependency := {
   name := `GameServer
   scope := "hhu-adam"
   src? := DependencySrc.path "../lean4game/server"
-  version? := none
+  version := .none
   opts := ∅
 }
+
+/--
+The release of our lean4game fork (upstream plus our changes, tags on its `stg4-ui` branch)
+that provides the GameServer. Keep in sync with `LEAN4GAME_REF` in `.devcontainer/Dockerfile`
+and `.devcontainer/docker-compose.yml`; CI checks that they match.
+-/
+def lean4gameRef : String := "stg4-v5"
 
 /--
 Use the GameServer version from github.
@@ -23,8 +30,8 @@ Deactivate local version with `lake update -R`.
 def RemoteGameServer : Dependency := {
   name := `GameServer
   scope := "hhu-adam"
-  src? := DependencySrc.git "https://github.com/leanprover-community/lean4game.git" leanVersion "server"
-  version? := s!"git#{leanVersion}"
+  src? := DependencySrc.git "https://github.com/elonblonz/lean4game.git" lean4gameRef "server"
+  version := .git lean4gameRef
   opts := ∅
 }
 

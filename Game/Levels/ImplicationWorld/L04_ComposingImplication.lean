@@ -40,6 +40,6 @@ Statement {P Q R : Prop} (p : P) (h1 : P → Q) (h2 : Q → R) : R := by
 Conclusion "We've seen that an implication `h : P → Q` can be applied in the presense of a proof `p : P` to provide a proof of the proposition `Q`. This explains how implications are *used* in proofs of other statements. In the next level, we will see how implications can be *proven*."
 
 /-- The `have` tactic can be used to add new hypotheses provided you can supply a proof. For example, given assumptions `p : P` and `h : P → Q`, type `have q : Q := h p` to add a proof `q : Q` defined by `h p`. -/
-TacticDoc «have»
+TacticDoc «have» reads "We obtain {new}."
 
 NewTactic «have»
