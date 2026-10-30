@@ -21,7 +21,7 @@ The release of our lean4game fork (upstream plus our changes, tags on its `stg4-
 that provides the GameServer. Keep in sync with `LEAN4GAME_REF` in `.devcontainer/Dockerfile`
 and `.devcontainer/docker-compose.yml`; CI checks that they match.
 -/
-def lean4gameRef : String := "stg4-v5"
+def lean4gameRef : String := "stg4-v7"
 
 /--
 Use the GameServer version from github.
